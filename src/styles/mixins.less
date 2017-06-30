@@ -1,0 +1,89 @@
+// mixins
+.rotate(@rotation) {
+  transform: rotate(@rotation);
+}
+
+.box-sizing(@box-sizing) {
+  box-sizing: @box-sizing;
+}
+.transition-property(@transition) {
+  transition-property: @transition;
+}
+
+.transition-duration(@duration) {
+  transition-duration: @duration;
+}
+
+.transition-timing-function(@timing){
+  transition-timing-function: @timing;
+}
+
+.flex-h() {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-v() {
+  display: flex;
+  flex-direction: column;
+};
+
+.flex-center() {
+  align-items: center;
+  justify-content: center;
+};
+
+.fa-spin() {
+  animation: fa-spin 2s infinite linear;
+}
+
+.ellipsis() {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+/* styles for multiLine (default 2) line '...' */
+.multi-line-ellipsis (@lineHeight: 24px, @line: 2, @fontSize: 16px, @backgroundColor: white) {
+  overflow: hidden;
+  position: relative;
+  line-height: @lineHeight;
+  max-height: @lineHeight * @line;
+  text-align: justify;
+  margin-right: @fontSize * -1;
+  padding-right: @fontSize;
+
+  &:before {
+    content: '...';
+    position: absolute;
+    right: 2px;
+    bottom: 0;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    right: 2px;
+    width: @fontSize;
+    height: @fontSize;
+    margin-top: 4px;
+    background: @backgroundColor;
+  }
+}
+
+.responsive-placeholder(@width, @percent) {
+  width: @width;
+  height: 0;
+  padding-bottom: @percent;
+}
+
+.gradient-shadow-element(@topColor, @bottomColor) {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 40px;
+  background: linear-gradient(@topColor, @bottomColor);
+};
